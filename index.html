@@ -9,6 +9,9 @@
             font-family: Arial, sans-serif;
             text-align: center;
             margin: 50px;
+            background-color: white;
+            color: black;
+            transition: background-color 0.3s, color 0.3s;
         }
         h1 {
             font-weight: bold;
@@ -22,6 +25,25 @@
             font-size: 50px;
             margin-top: 20px;
         }
+        .toggle-btn {
+            margin-top: 30px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: black;
+            color: white;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .dark-mode {
+            background-color: #1a1e27; /* Dark grey with blue hue */
+            color: white;
+        }
+        .dark-mode .toggle-btn {
+            background-color: white;
+            color: black;
+        }
     </style>
 </head>
 <body>
@@ -31,5 +53,13 @@
 
     <p class="construction">🚧</p>
     <p>This site is still under construction, but be sure to check back soon to view my full design portfolio.</p>
+
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Dark Mode</button>
+
+    <script>
+        function toggleMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
 </body>
 </html>

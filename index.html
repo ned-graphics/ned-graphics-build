@@ -99,6 +99,11 @@
             font-family: "Lucida Console", Monaco, monospace; /* Set arrow font to Lucida Console */
             font-size: 20px; /* Increase arrow font size to 20px */
         }
+        .contact-email {
+            font-size: 12px;
+            opacity: 0.5; /* 50% opacity */
+            margin-top: 30px; /* Space above the email */
+        }
     </style>
 </head>
 <body>
@@ -107,9 +112,12 @@
     With an interest in identity and branding, I am keen on combining type and image to form cohesive and considered design systems.</p>
 
     <p class="construction">🚧</p>
-    <p>This site is still under construction, but be sure to check back soon to view my full design portfolio.</p>
+    <p>This site is still under construction, but be sure to check back soon to view my full design portfolio. Or, you can get in touch here:</p>
 
     <div class="social-btns">
+        <button class="social-btn" onclick="window.location.href='mailto:nedmesserdesign@gmail.com'">
+            Email&nbsp;<span class="arrow">→</span>
+        </button>
         <button class="social-btn" onclick="window.location.href='https://www.linkedin.com/in/ned-messer-115b16346/'">
             LinkedIn&nbsp;<span class="arrow">→</span>
         </button>
@@ -119,6 +127,9 @@
     </div>
 
     <button class="toggle-btn" onclick="toggleMode()">Toggle Appearance</button>
+
+    <!-- Final Contact Email -->
+    <p class="contact-email">nedmesserdesign@gmail.com</p>
 
     <script>
         function toggleMode() {

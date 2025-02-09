@@ -32,7 +32,7 @@
             margin-top: 20px;
         }
         .toggle-btn {
-            margin-top: 100px; /* Increased top margin */
+            margin-top: 60px; /* Changed top margin from 100px to 60px */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -45,6 +45,11 @@
         .toggle-btn:hover {
             background-color: rgb(58, 86, 224);
             color: white; /* Text changes to white on hover */
+        }
+        .toggle-btn:focus, .toggle-btn:active {
+            outline: none; /* Removes the focus and active outline on mobile */
+            background-color: transparent; /* Keeps it transparent */
+            color: rgb(58, 86, 224); /* Keeps the original text color */
         }
         .dark-mode {
             background-color: rgb(28, 32, 46); /* Dark Mode Background */
@@ -60,7 +65,7 @@
         }
         .dark-mode h1 {
             background-color: white; /* Rectangle background becomes white in Dark Mode */
-            color: rgb(58, 86, 224); /* Text color changes to dark blue-grey in Dark Mode */
+            color: rgb(28, 32, 46); /* Text color changes to match background in Dark Mode */
         }
     </style>
 </head>

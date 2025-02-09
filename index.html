@@ -32,7 +32,7 @@
             margin-top: 20px;
         }
         .toggle-btn {
-            margin-top: 60px; /* Changed top margin from 100px to 60px */
+            margin-top: 20px; /* Changed margin to 20px */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
@@ -62,6 +62,43 @@
             background-color: white; /* Rectangle background becomes white in Dark Mode */
             color: rgb(28, 32, 46); /* Text color changes to match background in Dark Mode */
         }
+        .social-btns {
+            display: flex;
+            justify-content: center;
+            gap: 10px; /* Space between buttons */
+            margin-top: 25px; /* Increased margin above social media buttons by 5px */
+        }
+        .social-btn {
+            width: auto;
+            height: 40px;
+            padding: 0 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border: 2px solid rgb(58, 86, 224);
+            background-color: transparent;
+            color: rgb(58, 86, 224);
+            border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .social-btn:hover {
+            background-color: rgb(58, 86, 224);
+            color: white; /* Text changes to white on hover */
+        }
+        .dark-mode .social-btn {
+            border-color: white;
+            color: white;
+        }
+        .dark-mode .social-btn:hover {
+            background-color: white;
+            color: rgb(28, 32, 46);
+        }
+        .arrow {
+            font-family: "Lucida Console", Monaco, monospace; /* Set arrow font to Lucida Console */
+            font-size: 20px; /* Increase arrow font size to 20px */
+        }
     </style>
 </head>
 <body>
@@ -72,21 +109,20 @@
     <p class="construction">🚧</p>
     <p>This site is still under construction, but be sure to check back soon to view my full design portfolio.</p>
 
+    <div class="social-btns">
+        <button class="social-btn" onclick="window.location.href='https://www.linkedin.com/in/ned-messer-115b16346/'">
+            LinkedIn&nbsp;<span class="arrow">→</span>
+        </button>
+        <button class="social-btn" onclick="window.location.href='https://www.instagram.com/ned.graphics'">
+            Instagram&nbsp;<span class="arrow">→</span>
+        </button>
+    </div>
+
     <button class="toggle-btn" onclick="toggleMode()">Toggle Appearance</button>
 
     <script>
         function toggleMode() {
             document.body.classList.toggle("dark-mode");
-
-            // Add a 0.5-second delay to reset the button's appearance
-            const button = document.querySelector('.toggle-btn');
-            button.style.transition = 'none'; // Disable transition during reset
-
-            // After 0.5 seconds, force the button to reset to outline appearance
-            setTimeout(() => {
-                button.style.transition = 'background-color 0.3s, color 0.3s'; // Re-enable transition
-                button.blur(); // Remove focus from button
-            }, 500);
         }
     </script>
 </body>

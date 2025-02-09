@@ -46,9 +46,12 @@
             background-color: rgb(58, 86, 224);
             color: white; /* Text changes to white on hover */
         }
+        .toggle-btn:focus-visible {
+            outline: none; /* Remove focus outline when focused with keyboard (not clicked) */
+        }
         .toggle-btn:focus, .toggle-btn:active {
-            outline: none; /* Remove focus outline */
-            background-color: transparent; /* Keep transparent background */
+            outline: none; /* Remove outline on tap/click */
+            background-color: transparent; /* Keeps it transparent */
             color: rgb(58, 86, 224); /* Keep original text color */
         }
         .dark-mode {

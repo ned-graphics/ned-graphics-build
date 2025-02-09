@@ -10,7 +10,7 @@
             text-align: center;
             margin: 50px;
             background-color: white;
-            color: black;
+            color: rgb(58, 86, 224); /* Light Mode Text Color */
             transition: background-color 0.3s, color 0.3s;
         }
         h1 {
@@ -26,23 +26,23 @@
             margin-top: 20px;
         }
         .toggle-btn {
-            margin-top: 30px;
+            margin-top: 50px; /* Moved further down */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
-            background-color: black;
+            background-color: rgb(58, 86, 224); /* Light Mode Button Color */
             color: white;
             transition: background-color 0.3s, color 0.3s;
         }
         .dark-mode {
-            background-color: #1a1e27; /* Dark grey with blue hue */
+            background-color: rgb(28, 32, 46); /* Dark Mode Background */
             color: white;
         }
         .dark-mode .toggle-btn {
             background-color: white;
-            color: black;
+            color: rgb(28, 32, 46); /* Dark Mode Button Text */
         }
     </style>
 </head>
@@ -54,7 +54,7 @@
     <p class="construction">🚧</p>
     <p>This site is still under construction, but be sure to check back soon to view my full design portfolio.</p>
 
-    <button class="toggle-btn" onclick="toggleMode()">Toggle Dark Mode</button>
+    <button class="toggle-btn" onclick="toggleMode()">Toggle Appearance</button>
 
     <script>
         function toggleMode() {

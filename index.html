@@ -15,34 +15,52 @@
         }
         h1 {
             font-weight: bold;
+            font-style: italic;
+            margin: 0;
+            color: white; /* Text color matches the background for readability */
+            padding: 15px 30px; /* Added more padding widthwise */
+            background-color: rgb(58, 86, 224); /* Rectangle background color */
+            display: inline-block;
         }
         p {
             font-size: 18px;
             max-width: 600px;
-            margin: 0 auto;
+            margin: 20px auto 0 auto; /* Moved content below by one line */
         }
         .construction {
             font-size: 50px;
             margin-top: 20px;
         }
         .toggle-btn {
-            margin-top: 50px; /* Moved further down */
+            margin-top: 100px; /* Increased top margin */
             padding: 10px 20px;
             font-size: 16px;
             cursor: pointer;
-            border: none;
+            border: 2px solid rgb(58, 86, 224); /* Outline instead of solid background */
+            background-color: transparent; /* Transparent background */
+            color: rgb(58, 86, 224); /* Text color matches the outline */
             border-radius: 5px;
-            background-color: rgb(58, 86, 224); /* Light Mode Button Color */
-            color: white;
             transition: background-color 0.3s, color 0.3s;
+        }
+        .toggle-btn:hover {
+            background-color: rgb(58, 86, 224);
+            color: white; /* Text changes to white on hover */
         }
         .dark-mode {
             background-color: rgb(28, 32, 46); /* Dark Mode Background */
             color: white;
         }
         .dark-mode .toggle-btn {
+            border-color: white;
+            color: white; /* Text color in Dark Mode */
+        }
+        .dark-mode .toggle-btn:hover {
             background-color: white;
-            color: rgb(28, 32, 46); /* Dark Mode Button Text */
+            color: rgb(28, 32, 46); /* Text color changes to dark mode background */
+        }
+        .dark-mode h1 {
+            background-color: white; /* Rectangle background becomes white in Dark Mode */
+            color: rgb(58, 86, 224); /* Text color changes to dark blue-grey in Dark Mode */
         }
     </style>
 </head>

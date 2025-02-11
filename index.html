@@ -10,199 +10,155 @@
             text-align: center;
             margin: 50px;
             background-color: white;
-            color: rgb(58, 86, 224); /* Light Mode Text Color */
+            color: rgb(58, 86, 224);
             transition: background-color 0.3s, color 0.3s;
-            cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"%3E%3Ctext x="0" y="50" font-size="50"%3E✍️%3C/text%3E%3C/svg%3E') 32 32, auto; /* Reset offset to center */
-        }
-        body:hover {
-            cursor: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64"%3E%3Ctext x="0" y="50" font-size="50"%3E✍️%3C/text%3E%3C/svg%3E') -64 54, auto; /* Move upwards 50% */
         }
         h1 {
             font-weight: bold;
             font-style: italic;
             margin: 0;
-            color: white; /* Text color matches the background for readability */
-            padding: 15px 30px; /* Added more padding widthwise */
-            background-color: rgb(58, 86, 224); /* Rectangle background color */
+            color: white;
+            padding: 15px 30px;
+            background-color: rgb(58, 86, 224);
             display: inline-block;
         }
         p {
             font-size: 18px;
             max-width: 600px;
-            margin: 20px auto 0 auto; /* Moved content below by one line */
+            margin: 20px auto 0 auto;
         }
         .construction {
             font-size: 50px;
             margin-top: 20px;
         }
         .toggle-btn {
-            margin-top: 15px; /* Reduced the top margin to 15px */
-            padding: 10px 20px;
+            margin-top: 20px;
+            padding: 10px 30px;
             font-size: 16px;
             cursor: pointer;
-            border: 2px solid rgb(58, 86, 224); /* Outline instead of solid background */
-            background-color: transparent; /* Transparent background */
-            color: rgb(58, 86, 224); /* Text color matches the outline */
-            border-radius: 5px;
+            border: 2px solid rgb(58, 86, 224);
+            background-color: transparent;
+            color: rgb(58, 86, 224);
+            border-radius: 50px;
             transition: background-color 0.3s, color 0.3s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 180px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 10px;
         }
-        .toggle-btn:hover {
+        .toggle-btn span {
+            flex: 1;
+            text-align: center;
+            padding: 8px 20px;
+            border-radius: 20px;
+        }
+        .toggle-btn .active {
             background-color: rgb(58, 86, 224);
-            color: white; /* Text changes to white on hover */
+            color: white;
         }
         .dark-mode {
-            background-color: rgb(28, 32, 46); /* Dark Mode Background */
+            background-color: rgb(28, 32, 46);
             color: white;
         }
         .dark-mode .toggle-btn {
             border-color: white;
-            color: white; /* Text color in Dark Mode */
+            color: white;
         }
-        .dark-mode .toggle-btn:hover {
+        .dark-mode .toggle-btn .active {
             background-color: white;
-            color: rgb(28, 32, 46); /* Text color changes to dark mode background */
+            color: rgb(28, 32, 46);
         }
         .dark-mode h1 {
-            background-color: white; /* Rectangle background becomes white in Dark Mode */
-            color: rgb(28, 32, 46); /* Text color changes to match background in Dark Mode */
+            background-color: white;
+            color: rgb(28, 32, 46);
         }
-        .instagram-btn, .linkedin-btn, .email-btn {
-            margin-top: 20px;
+        .social-btns {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 25px;
+        }
+        .social-btn {
             width: auto;
             height: 40px;
             padding: 0 10px;
             font-size: 16px;
             cursor: pointer;
-            border: 2px solid rgb(58, 86, 224); /* Same style as toggle button */
-            background-color: transparent; /* Transparent background */
-            color: rgb(58, 86, 224); /* Text color matches the outline */
+            border: 2px solid rgb(58, 86, 224);
+            background-color: transparent;
+            color: rgb(58, 86, 224);
             border-radius: 5px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             transition: background-color 0.3s, color 0.3s;
-            display: inline-block;
-            text-align: center;
         }
-        .instagram-btn:hover, .linkedin-btn:hover, .email-btn:hover {
+        .social-btn:hover {
             background-color: rgb(58, 86, 224);
-            color: white; /* Text changes to white on hover */
+            color: white;
         }
-        .dark-mode .instagram-btn, .dark-mode .linkedin-btn, .dark-mode .email-btn {
+        .dark-mode .social-btn {
             border-color: white;
-            color: white; /* Text color in Dark Mode */
+            color: white;
         }
-        .dark-mode .instagram-btn:hover, .dark-mode .linkedin-btn:hover, .dark-mode .email-btn:hover {
+        .dark-mode .social-btn:hover {
             background-color: white;
-            color: rgb(28, 32, 46); /* Text color changes to dark mode background */
+            color: rgb(28, 32, 46);
         }
-        .social-buttons {
-            margin-top: 20px;
+        .arrow {
+            font-family: "Lucida Console", Monaco, monospace;
+            font-size: 20px;
         }
-        .social-buttons button {
-            margin-right: 10px; /* Spacing between buttons */
-        }
-        .social-buttons span {
-            display: inline-block;
-            margin-top: 5px;
-        }
-        .footer-text {
+        .contact-email {
             font-size: 12px;
-            opacity: 0.50;
-            margin-top: 20px;
-        }
-
-        /* CSS for highlighted words */
-        .highlight:hover {
-            color: #FF6347; /* Bright red when hovered */
-        }
-
-        /* CSS for clicked words (Comic Sans MS font) */
-        .highlight.clicked {
-            font-family: 'Comic Sans MS', cursive, sans-serif;
+            opacity: 0.5;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
     <h1>Hi, I'm Ned.</h1>
-    <p>
-        <span class="highlight" onclick="toggleFont(event)">I’m</span> 
-        <span class="highlight" onclick="toggleFont(event)">a</span> 
-        <span class="highlight" onclick="toggleFont(event)">freelance</span> 
-        <span class="highlight" onclick="toggleFont(event)">graphic</span> 
-        <span class="highlight" onclick="toggleFont(event)">designer</span> 
-        <span class="highlight" onclick="toggleFont(event)">currently</span> 
-        <span class="highlight" onclick="toggleFont(event)">studying</span> 
-        <span class="highlight" onclick="toggleFont(event)">in</span> 
-        <span class="highlight" onclick="toggleFont(event)">Sheffield</span>.<br>
-        <span class="highlight" onclick="toggleFont(event)">With</span> 
-        <span class="highlight" onclick="toggleFont(event)">an</span> 
-        <span class="highlight" onclick="toggleFont(event)">interest</span> 
-        <span class="highlight" onclick="toggleFont(event)">in</span> 
-        <span class="highlight" onclick="toggleFont(event)">identity</span> 
-        <span class="highlight" onclick="toggleFont(event)">and</span> 
-        <span class="highlight" onclick="toggleFont(event)">branding</span>, 
-        <span class="highlight" onclick="toggleFont(event)">I</span> 
-        <span class="highlight" onclick="toggleFont(event)">am</span> 
-        <span class="highlight" onclick="toggleFont(event)">keen</span> 
-        <span class="highlight" onclick="toggleFont(event)">on</span> 
-        <span class="highlight" onclick="toggleFont(event)">combining</span> 
-        <span class="highlight" onclick="toggleFont(event)">type</span> 
-        <span class="highlight" onclick="toggleFont(event)">and</span> 
-        <span class="highlight" onclick="toggleFont(event)">image</span> 
-        <span class="highlight" onclick="toggleFont(event)">to</span> 
-        <span class="highlight" onclick="toggleFont(event)">form</span> 
-        <span class="highlight" onclick="toggleFont(event)">cohesive</span> 
-        <span class="highlight" onclick="toggleFont(event)">and</span> 
-        <span class="highlight" onclick="toggleFont(event)">considered</span> 
-        <span class="highlight" onclick="toggleFont(event)">design</span> 
-        <span class="highlight" onclick="toggleFont(event)">systems</span>.
-    </p>
+    <p>I’m a freelance graphic designer currently studying in Sheffield.<br>
+    With an interest in identity and branding, I am keen on combining type and image to form cohesive and considered design systems.</p>
 
     <p class="construction">🚧</p>
-    <p>
-        <span class="highlight" onclick="toggleFont(event)">This</span> 
-        <span class="highlight" onclick="toggleFont(event)">site</span> 
-        <span class="highlight" onclick="toggleFont(event)">is</span> 
-        <span class="highlight" onclick="toggleFont(event)">still</span> 
-        <span class="highlight" onclick="toggleFont(event)">under</span> 
-        <span class="highlight" onclick="toggleFont(event)">construction</span>, 
-        <span class="highlight" onclick="toggleFont(event)">but</span> 
-        <span class="highlight" onclick="toggleFont(event)">be</span> 
-        <span class="highlight" onclick="toggleFont(event)">sure</span> 
-        <span class="highlight" onclick="toggleFont(event)">to</span> 
-        <span class="highlight" onclick="toggleFont(event)">check</span> 
-        <span class="highlight" onclick="toggleFont(event)">back</span> 
-        <span class="highlight" onclick="toggleFont(event)">soon</span> 
-        <span class="highlight" onclick="toggleFont(event)">to</span> 
-        <span class="highlight" onclick="toggleFont(event)">view</span> 
-        <span class="highlight" onclick="toggleFont(event)">my</span> 
-        <span class="highlight" onclick="toggleFont(event)">full</span> 
-        <span class="highlight" onclick="toggleFont(event)">design</span> 
-        <span class="highlight" onclick="toggleFont(event)">portfolio</span>. 
-        <span class="highlight" onclick="toggleFont(event)">Or</span>, 
-        <span class="highlight" onclick="toggleFont(event)">you</span> 
-        <span class="highlight" onclick="toggleFont(event)">can</span> 
-        <span class="highlight" onclick="toggleFont(event)">get</span> 
-        <span class="highlight" onclick="toggleFont(event)">in</span> 
-        <span class="highlight" onclick="toggleFont(event)">touch</span> 
-        <span class="highlight" onclick="toggleFont(event)">here</span>:
-    </p>
+    <p>This site is still under construction, but be sure to check back soon to view my full design portfolio. Or, you can get in touch here:</p>
 
-    <div class="social-buttons">
-        <button class="email-btn" onclick="window.location.href='mailto:nedmesserdesign@gmail.com'">Email →</button>
-        <button class="linkedin-btn" onclick="window.location.href='https://www.linkedin.com/in/ned-messer-115b16346/'">LinkedIn →</button>
-        <button class="instagram-btn" onclick="window.location.href='https://www.instagram.com/ned.graphics'">Instagram →</button>
+    <div class="social-btns">
+        <button class="social-btn" onclick="window.location.href='mailto:nedmesserdesign@gmail.com'">
+            Email&nbsp;<span class="arrow">→</span>
+        </button>
+        <button class="social-btn" onclick="window.location.href='https://www.linkedin.com/in/ned-messer-115b16346/'">
+            LinkedIn&nbsp;<span class="arrow">→</span>
+        </button>
+        <button class="social-btn" onclick="window.location.href='https://www.instagram.com/ned.graphics'">
+            Instagram&nbsp;<span class="arrow">→</span>
+        </button>
     </div>
 
-    <button class="toggle-btn" onclick="toggleMode()">Toggle Appearance</button>
+    <button class="toggle-btn" id="toggle-mode" onclick="toggleMode()">
+        <span id="light-mode" class="active">Light</span>
+        <span id="dark-mode">Dark</span>
+    </button>
 
-    <p class="footer-text">nedmesserdesign@gmail.com</p>
+    <p class="contact-email">nedmesserdesign@gmail.com</p>
 
     <script>
         function toggleMode() {
             document.body.classList.toggle("dark-mode");
-        }
-
-        function toggleFont(event) {
-            event.target.classList.toggle('clicked');
+            const lightMode = document.getElementById("light-mode");
+            const darkMode = document.getElementById("dark-mode");
+            
+            if (document.body.classList.contains("dark-mode")) {
+                lightMode.classList.remove("active");
+                darkMode.classList.add("active");
+            } else {
+                darkMode.classList.remove("active");
+                lightMode.classList.add("active");
+            }
         }
     </script>
 </body>

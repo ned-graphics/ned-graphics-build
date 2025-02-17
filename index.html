@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ned's Portfolio</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -13,28 +19,74 @@
             color: rgb(58, 86, 224);
             transition: background-color 0.3s, color 0.3s;
         }
+
+        /* Header navigation bar */
+        .header {
+            width: 100%;
+            background-color: white;
+            padding: 10px 0px;
+            border-bottom: 2px solid rgb(58, 86, 224);
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            flex-grow: 1;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: space-evenly;
+            list-style: none;
+            flex-grow: 1;
+        }
+
+        .nav-links li {
+            display: inline;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: rgb(58, 86, 224);
+            font-size: 16px;
+            font-weight: bold;
+            padding: 8px 15px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: darkblue;
+        }
+
         h1 {
             font-weight: bold;
             font-style: italic;
-            margin: 0;
+            margin: 20px 0 0 0;
             color: white;
             padding: 15px 30px;
             background-color: rgb(58, 86, 224);
             display: inline-block;
         }
+
         p {
             font-size: 18px;
             max-width: 600px;
             margin: 20px auto 0 auto;
         }
+
         .construction {
             font-size: 50px;
             margin-top: 20px;
         }
+
         .toggle-btn {
-            margin-top: 20px;
-            padding: 10px 30px;
-            font-size: 16px;
+            font-weight: bold;
+            font-size: 13px;
             cursor: pointer;
             border: 2px solid rgb(58, 86, 224);
             background-color: transparent;
@@ -42,45 +94,78 @@
             border-radius: 50px;
             transition: background-color 0.3s, color 0.3s;
             display: flex;
-            justify-content: center;
             align-items: center;
-            width: 180px;
-            margin-left: auto;
-            margin-right: auto;
-            padding: 10px;
+            padding: 0px 0px;
         }
+
         .toggle-btn span {
             flex: 1;
             text-align: center;
-            padding: 8px 20px;
-            border-radius: 20px;
+            padding: 6px 12px;
+            border-radius: 50px;
         }
+
         .toggle-btn .active {
-            background-color: rgb(58, 86, 224);
+            background-color: rgba(58, 86, 224, 0.5);
             color: white;
         }
+
+        /* Responsive adjustments */
+        @media (max-width: 450px) {
+            .header {
+                flex-direction: column;
+                align-items: center;
+            }
+            .nav-links {
+                width: 100%;
+                justify-content: space-around;
+            }
+            .toggle-btn {
+                margin-top: 10px;
+            }
+        }
+
+        /* Dark mode styles */
         .dark-mode {
             background-color: rgb(28, 32, 46);
             color: white;
         }
+
+        .dark-mode .header {
+            background-color: rgb(28, 32, 46);
+            border-color: white;
+        }
+
+        .dark-mode .nav-links a {
+            color: white;
+        }
+
+        .dark-mode .nav-links a:hover {
+            color: grey;
+        }
+
         .dark-mode .toggle-btn {
             border-color: white;
             color: white;
         }
+
         .dark-mode .toggle-btn .active {
-            background-color: white;
+            background-color: rgba(255, 255, 255, 0.5);
             color: rgb(28, 32, 46);
         }
+
         .dark-mode h1 {
             background-color: white;
             color: rgb(28, 32, 46);
         }
+
         .social-btns {
             display: flex;
             justify-content: center;
             gap: 10px;
             margin-top: 25px;
         }
+
         .social-btn {
             width: auto;
             height: 40px;
@@ -96,24 +181,29 @@
             justify-content: center;
             transition: background-color 0.3s, color 0.3s;
         }
+
         .social-btn:hover {
             background-color: rgb(58, 86, 224);
             color: white;
         }
+
         .dark-mode .social-btn {
             border-color: white;
             color: white;
         }
+
         .dark-mode .social-btn:hover {
             background-color: white;
             color: rgb(28, 32, 46);
         }
+
         .arrow {
             position: relative;
             top: -2px;
             font-family: "Lucida Console", Monaco, monospace;
             font-size: 20px;
         }
+
         .contact-email {
             font-size: 12px;
             opacity: 0.5;
@@ -122,12 +212,27 @@
     </style>
 </head>
 <body>
+
+    <!-- Header Navigation Bar -->
+    <header class="header">
+        <nav class="nav-container">
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+        <button class="toggle-btn" id="toggle-mode" onclick="toggleMode()">
+            <span id="light-mode" class="active">Light</span>
+            <span id="dark-mode">Dark</span>
+        </button>
+    </header>
+
     <h1>Hi, I'm Ned.</h1>
     <p>I’m a freelance graphic designer currently studying in Sheffield.<br>
     With an interest in identity and branding, I am keen on combining type and image to form cohesive and considered design systems.</p>
 
-    <p class="construction">🚧</p>
-    <p>This site is still under construction, but be sure to check back soon to view my full design portfolio. Or, you can get in touch here:</p>
+    <p>You can get in touch here:</p>
 
     <div class="social-btns">
         <button class="social-btn" onclick="window.location.href='mailto:nedmesserdesign@gmail.com'">
@@ -140,12 +245,7 @@
             Instagram&nbsp;<span class="arrow">↗</span>
         </button>
     </div>
-
-    <button class="toggle-btn" id="toggle-mode" onclick="toggleMode()">
-        <span id="light-mode" class="active">Light</span>
-        <span id="dark-mode">Dark</span>
-    </button>
-
+    
     <p class="contact-email">nedmesserdesign@gmail.com</p>
 
     <script>
@@ -163,5 +263,6 @@
             }
         }
     </script>
+
 </body>
 </html>

@@ -28,20 +28,20 @@
             border-bottom: 2px solid rgb(58, 86, 224);
             display: flex;
             flex-wrap: wrap;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
             transition: background-color 0.3s, border-color 0.3s;
         }
 
         .nav-container {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             flex-grow: 1;
         }
         
         .nav-links {
             display: flex;
-            justify-content: space-evenly;
+            justify-content: flex-start;
             list-style: none;
             flex-grow: 1;
         }
@@ -111,7 +111,7 @@
         }
 
         /* Responsive adjustments */
-        @media (max-width: 450px) {
+        @media (max-width: 355px) {
             .header {
                 flex-direction: column;
                 align-items: center;
@@ -219,7 +219,6 @@
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
                 <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
         <button class="toggle-btn" id="toggle-mode" onclick="toggleMode()">
@@ -228,7 +227,6 @@
         </button>
     </header>
 
-    
     <h1>Get in touch:</h1>
     <p>Currently, the best way to get in touch with me is to send me a friendly email at the address linked by the button (and written below).</p>
 

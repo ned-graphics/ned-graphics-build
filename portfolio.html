@@ -20,7 +20,6 @@
             transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Header navigation bar */
         .header {
             width: 100%;
             background-color: white;
@@ -38,7 +37,7 @@
             justify-content: space-between;
             flex-grow: 1;
         }
-        
+
         .nav-links {
             display: flex;
             justify-content: flex-start;
@@ -110,7 +109,6 @@
             color: white;
         }
 
-        /* Responsive adjustments */
         @media (max-width: 355px) {
             .header {
                 flex-direction: column;
@@ -126,7 +124,7 @@
         }
 
         /* Dark mode styles */
-        .dark-mode {
+        .dark-mode body {
             background-color: rgb(28, 32, 46);
             color: white;
         }
@@ -210,6 +208,16 @@
             margin-top: 30px;
         }
     </style>
+
+    <!-- Load saved mode before page renders -->
+    <script>
+        (function () {
+            const savedMode = localStorage.getItem('mode');
+            if (savedMode === 'dark') {
+                document.documentElement.classList.add('dark-mode');
+            }
+        })();
+    </script>
 </head>
 <body>
 
@@ -241,23 +249,42 @@
             Instagram&nbsp;<span class="arrow">↗</span>
         </button>
     </div>
-    
+
     <p class="contact-email">nedmesserdesign@gmail.com</p>
 
     <script>
         function toggleMode() {
-            document.body.classList.toggle("dark-mode");
+            const html = document.documentElement;
+            const isDark = html.classList.toggle("dark-mode");
+
             const lightMode = document.getElementById("light-mode");
             const darkMode = document.getElementById("dark-mode");
-            
-            if (document.body.classList.contains("dark-mode")) {
+
+            if (isDark) {
+                localStorage.setItem("mode", "dark");
+                lightMode.classList.remove("active");
+                darkMode.classList.add("active");
+            } else {
+                localStorage.setItem("mode", "light");
+                darkMode.classList.remove("active");
+                lightMode.classList.add("active");
+            }
+        }
+
+        // Ensure buttons reflect the correct active state on page load
+        window.addEventListener("DOMContentLoaded", () => {
+            const savedMode = localStorage.getItem("mode");
+            const lightMode = document.getElementById("light-mode");
+            const darkMode = document.getElementById("dark-mode");
+
+            if (savedMode === "dark") {
                 lightMode.classList.remove("active");
                 darkMode.classList.add("active");
             } else {
                 darkMode.classList.remove("active");
                 lightMode.classList.add("active");
             }
-        }
+        });
     </script>
 
 </body>

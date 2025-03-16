@@ -7,19 +7,85 @@
     <style>
         body {
             display: flex;
-            justify-content: center;
+            flex-direction: column;
             align-items: center;
-            height: 100vh;
             margin: 0;
             background-color: #f0f0f0;
+            padding: 2rem;
         }
-        svg {
-            max-width: 90%;
-            max-height: 90%;
+        .controls {
+            margin-bottom: 2rem;
+            width: 80%;
+        }
+        .controls label {
+            display: block;
+            margin: 1rem 0 0.5rem;
+        }
+        .svg-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .svg-instance {
+            transform-origin: center center;
+            margin-bottom: 1rem;
         }
     </style>
 </head>
 <body>
-    <object type="image/svg+xml" data="BiosphereAsset11.svg">Your browser does not support SVGs</object>
+    <div class="controls">
+        <label for="countSlider">Number of Images: <span id="countValue">3</span></label>
+        <input type="range" id="countSlider" min="1" max="20" value="3">
+
+        <label for="scaleXSlider">Horizontal Scale: <span id="scaleXValue">1</span></label>
+        <input type="range" id="scaleXSlider" min="0.1" max="3" step="0.1" value="1">
+
+        <label for="scaleYSlider">Vertical Scale: <span id="scaleYValue">1</span></label>
+        <input type="range" id="scaleYSlider" min="0.1" max="3" step="0.1" value="1">
+    </div>
+
+    <div class="svg-container" id="svgContainer">
+        <!-- SVG instances will be injected here -->
+    </div>
+
+    <script>
+        const countSlider = document.getElementById('countSlider');
+        const scaleXSlider = document.getElementById('scaleXSlider');
+        const scaleYSlider = document.getElementById('scaleYSlider');
+
+        const countValue = document.getElementById('countValue');
+        const scaleXValue = document.getElementById('scaleXValue');
+        const scaleYValue = document.getElementById('scaleYValue');
+
+        const svgContainer = document.getElementById('svgContainer');
+
+        function updateImages() {
+            const count = parseInt(countSlider.value);
+            const scaleX = parseFloat(scaleXSlider.value);
+            const scaleY = parseFloat(scaleYSlider.value);
+
+            countValue.textContent = count;
+            scaleXValue.textContent = scaleX;
+            scaleYValue.textContent = scaleY;
+
+            svgContainer.innerHTML = '';
+            for (let i = 0; i < count; i++) {
+                const obj = document.createElement('object');
+                obj.type = 'image/svg+xml';
+                obj.data = 'BiosphereAsset11.svg';
+                obj.className = 'svg-instance';
+                obj.style.transform = `scale(${scaleX}, ${scaleY})`;
+                svgContainer.appendChild(obj);
+            }
+        }
+
+        countSlider.addEventListener('input', updateImages);
+        scaleXSlider.addEventListener('input', updateImages);
+        scaleYSlider.addEventListener('input', updateImages);
+
+        // Initial load
+        updateImages();
+    </script>
 </body>
 </html>

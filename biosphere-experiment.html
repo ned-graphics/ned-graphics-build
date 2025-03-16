@@ -5,16 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biosphere Experiment</title>
     <style>
-        body {
+        html, body {
+            height: 100%;
+            margin: 0;
+            background-color: #f0f0f0;
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin: 0;
-            background-color: #f0f0f0;
-            padding: 2rem;
         }
         .controls {
-            margin-bottom: 2rem;
+            margin: 1rem 0;
             width: 80%;
         }
         .controls label {
@@ -26,10 +26,13 @@
             flex-direction: column;
             align-items: center;
             width: 100%;
+            flex-grow: 1;
+            justify-content: center;
         }
         .svg-instance {
             transform-origin: center center;
-            margin-bottom: 1rem;
+            width: auto;
+            height: auto;
         }
     </style>
 </head>
@@ -70,11 +73,15 @@
             scaleYValue.textContent = scaleY;
 
             svgContainer.innerHTML = '';
+
+            const heightPercent = 100 / count;
+
             for (let i = 0; i < count; i++) {
                 const obj = document.createElement('object');
                 obj.type = 'image/svg+xml';
                 obj.data = 'BiosphereAsset11.svg';
                 obj.className = 'svg-instance';
+                obj.style.height = heightPercent + 'vh';
                 obj.style.transform = `scale(${scaleX}, ${scaleY})`;
                 svgContainer.appendChild(obj);
             }

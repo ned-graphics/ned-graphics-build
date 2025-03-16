@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test PShape</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+</head>
+<body>
+<script>
+let myShape;
+
+function preload() {
+  myShape = loadShape('BiosphereAsset11.svg'); // Must be in same folder as index.html
+}
+
+function setup() {
+  createCanvas(500, 800);
+  shapeMode(CENTER);
+}
+
+function draw() {
+  background(240);
+  shape(myShape, width/2, height/2, 100, 100);
+}
+</script>
+</body>
+</html>

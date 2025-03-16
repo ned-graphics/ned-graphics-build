@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>PShape Example in p5.js</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.6.0/p5.min.js"></script>
+</head>
+<body>
+<script>
+let myShape;
+let stW, sW, sH;
+let shapeCount = 10;
+
+function preload() {
+  myShape = loadShape('BiosphereAsset11.svg');
+}
+
+function setup() {
+  createCanvas(500, 800);
+  shapeMode(CENTER);
+  stW = random(5, 50);
+  sW = random(50, 400);
+  sH = random(20, 60);
+}
+
+function draw() {
+  background(255);
+  noFill();
+  strokeWeight(stW);
+  strokeCap(SQUARE);
+
+  shapeCount = int(map(mouseX, 0, width, 2, 50));
+  let bfr = 100;
+  let spacing = (height - (bfr * 2)) / (shapeCount - 1);
+
+  for (let i = 0; i < shapeCount; i++) {
+    let yPos = bfr + i * spacing;
+
+    if (i % 2 === 0) {
+      stroke(50, 187, 101);
+    } else {
+      stroke(110, 210, 225);
+    }
+
+    shape(myShape, width / 2, yPos, sW, sH);
+  }
+}
+
+function keyPressed() {
+  stW = random(5, 50);
+  sW = random(50, 400);
+  sH = random(20, 60);
+}
+</script>
+</body>
+</html>

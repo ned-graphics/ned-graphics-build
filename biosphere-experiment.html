@@ -168,6 +168,7 @@
       color: darkblue;
     }
   </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -188,6 +189,7 @@
       <div class="buttons">
         <button id="resetButton" class="social-btn">Reset</button>
         <button id="randomButton" class="social-btn">Random</button>
+        <button id="exportButton" class="social-btn">Export</button>
       </div>
     </div>
   </div>
@@ -211,6 +213,7 @@
     const spacingSlider = document.getElementById('spacingSlider');
     const resetButton = document.getElementById('resetButton');
     const randomButton = document.getElementById('randomButton');
+    const exportButton = document.getElementById('exportButton');
 
     const countValue = document.getElementById('countValue');
     const scaleXValue = document.getElementById('scaleXValue');
@@ -272,6 +275,16 @@
       scaleYSlider.value = (Math.random() * 2.5 + 0.3).toFixed(1);
       spacingSlider.value = Math.floor(Math.random() * 50);
       updateImages();
+    });
+
+    exportButton.addEventListener('click', () => {
+      const svgFrame = document.querySelector('.svg-frame');
+      html2canvas(svgFrame, { backgroundColor: '#ffffff', useCORS: true }).then(canvas => {
+        const link = document.createElement('a');
+        link.download = 'biosphere_export.jpeg';
+        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.click();
+      });
     });
 
     updateImages();

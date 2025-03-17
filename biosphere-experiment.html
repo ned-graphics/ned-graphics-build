@@ -168,7 +168,6 @@
       color: darkblue;
     }
   </style>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
 
@@ -193,19 +192,20 @@
       </div>
     </div>
   </div>
-  
+
   <div class="nav-links">
     <a href="https://www.ned.graphics" target="_blank">Home</a>
   </div>
-  
+
   <div class="right-panel">
-    <div class="svg-frame">
+    <div class="svg-frame" id="captureArea">
       <div class="svg-container" id="svgContainer">
         <!-- SVG instances will be injected here -->
       </div>
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
   <script>
     const countSlider = document.getElementById('countSlider');
     const scaleXSlider = document.getElementById('scaleXSlider');
@@ -243,16 +243,15 @@
       svgContainer.innerHTML = '';
 
       for (let i = 0; i < count; i++) {
-        const obj = document.createElement('object');
-        obj.type = 'image/svg+xml';
-        obj.data = 'BiosphereAsset11.svg';
-        obj.className = 'svg-instance';
-        obj.style.height = `calc(${100 / count}vh - ${spacing}px)`;
-        obj.style.marginTop = `${spacing / 2}px`;
-        obj.style.marginBottom = `${spacing / 2}px`;
-        obj.style.transform = `scale(${scaleX}, ${scaleY})`;
-        obj.style.transition = 'transform 0.3s ease, margin 0.3s ease, height 0.3s ease';
-        svgContainer.appendChild(obj);
+        const img = document.createElement('img');
+        img.src = 'BiosphereAsset11.svg';
+        img.className = 'svg-instance';
+        img.style.height = `calc(${100 / count}vh - ${spacing}px)`;
+        img.style.marginTop = `${spacing / 2}px`;
+        img.style.marginBottom = `${spacing / 2}px`;
+        img.style.transform = `scale(${scaleX}, ${scaleY})`;
+        img.style.transition = 'transform 0.3s ease, margin 0.3s ease, height 0.3s ease';
+        svgContainer.appendChild(img);
       }
     }
 
@@ -278,11 +277,11 @@
     });
 
     exportButton.addEventListener('click', () => {
-      const svgFrame = document.querySelector('.svg-frame');
-      html2canvas(svgFrame, { backgroundColor: '#ffffff', useCORS: true }).then(canvas => {
+      const captureArea = document.getElementById('captureArea');
+      html2canvas(captureArea, { useCORS: true }).then(canvas => {
         const link = document.createElement('a');
         link.download = 'biosphere_export.jpeg';
-        link.href = canvas.toDataURL('image/jpeg', 0.95);
+        link.href = canvas.toDataURL('image/jpeg');
         link.click();
       });
     });

@@ -63,7 +63,7 @@
       object-fit: contain;
       display: block;
       margin: 0 auto;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, margin 0.3s ease;
       height: auto;
     }
 
@@ -146,13 +146,16 @@
 
       svgContainer.innerHTML = '';
 
+      const spacing = 100 / count;
+
       for (let i = 0; i < count; i++) {
         const obj = document.createElement('object');
         obj.type = 'image/svg+xml';
         obj.data = 'BiosphereAsset11.svg';
         obj.className = 'svg-instance';
-        obj.style.flex = `1 1 0%`;
+        obj.style.height = spacing + 'vh';
         obj.style.transform = `scale(${scaleX}, ${scaleY})`;
+        obj.style.transition = 'transform 0.3s ease, height 0.3s ease';
         svgContainer.appendChild(obj);
       }
     }

@@ -36,7 +36,7 @@
       width: 50%;
       height: 100vh;
       display: flex;
-      justify-content: center; /* Center the svg-frame horizontally */
+      justify-content: center;
       align-items: center;
       overflow: hidden;
     }
@@ -45,14 +45,14 @@
       width: 100%;
       height: 100%;
       display: flex;
-      justify-content: center; /* Center the container horizontally */
+      justify-content: center;
       align-items: center;
     }
 
     .svg-container {
       display: flex;
       flex-direction: column;
-      align-items: center; /* Center SVGs horizontally inside column */
+      align-items: center;
       justify-content: center;
       height: 100%;
       width: 100%;
@@ -63,6 +63,7 @@
       object-fit: contain;
       display: block;
       margin: 0 auto;
+      transition: transform 0.3s ease, height 0.3s ease;
     }
 
     .controls label {
@@ -72,6 +73,18 @@
 
     .controls input[type=range] {
       width: 100%;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .buttons button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
     }
   </style>
 </head>
@@ -86,6 +99,11 @@
 
       <label for="scaleYSlider">Vertical Scale: <span id="scaleYValue">1</span></label>
       <input type="range" id="scaleYSlider" min="0.1" max="3" step="0.1" value="1" />
+
+      <div class="buttons">
+        <button id="resetButton">Reset</button>
+        <button id="randomButton">Random</button>
+      </div>
     </div>
   </div>
 
@@ -101,12 +119,20 @@
     const countSlider = document.getElementById('countSlider');
     const scaleXSlider = document.getElementById('scaleXSlider');
     const scaleYSlider = document.getElementById('scaleYSlider');
+    const resetButton = document.getElementById('resetButton');
+    const randomButton = document.getElementById('randomButton');
 
     const countValue = document.getElementById('countValue');
     const scaleXValue = document.getElementById('scaleXValue');
     const scaleYValue = document.getElementById('scaleYValue');
 
     const svgContainer = document.getElementById('svgContainer');
+
+    const defaultSettings = {
+      count: 3,
+      scaleX: 1,
+      scaleY: 1
+    };
 
     function updateImages() {
       const count = parseInt(countSlider.value);
@@ -135,6 +161,20 @@
     countSlider.addEventListener('input', updateImages);
     scaleXSlider.addEventListener('input', updateImages);
     scaleYSlider.addEventListener('input', updateImages);
+
+    resetButton.addEventListener('click', () => {
+      countSlider.value = defaultSettings.count;
+      scaleXSlider.value = defaultSettings.scaleX;
+      scaleYSlider.value = defaultSettings.scaleY;
+      updateImages();
+    });
+
+    randomButton.addEventListener('click', () => {
+      countSlider.value = Math.floor(Math.random() * 20) + 1;
+      scaleXSlider.value = (Math.random() * 2.9 + 0.1).toFixed(1);
+      scaleYSlider.value = (Math.random() * 2.9 + 0.1).toFixed(1);
+      updateImages();
+    });
 
     // Initial load
     updateImages();

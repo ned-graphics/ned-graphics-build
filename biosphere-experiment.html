@@ -63,7 +63,7 @@
       object-fit: contain;
       display: block;
       margin: 0 auto;
-      transition: transform 0.3s ease, margin 0.3s ease;
+      transition: transform 0.3s ease, margin 0.3s ease, height 0.3s ease;
       height: auto;
     }
 
@@ -92,8 +92,8 @@
 <body>
   <div class="left-panel">
     <div class="controls">
-      <label for="countSlider">Number of Images: <span id="countValue">3</span></label>
-      <input type="range" id="countSlider" min="1" max="20" value="3" />
+      <label for="countSlider">Number of Images: <span id="countValue">10</span></label>
+      <input type="range" id="countSlider" min="5" max="20" value="10" />
 
       <label for="scaleXSlider">Horizontal Scale: <span id="scaleXValue">1</span></label>
       <input type="range" id="scaleXSlider" min="0.1" max="3" step="0.1" value="1" />
@@ -135,7 +135,7 @@
     const svgContainer = document.getElementById('svgContainer');
 
     const defaultSettings = {
-      count: 3,
+      count: 10,
       scaleX: 1,
       scaleY: 1,
       spacing: 0
@@ -182,7 +182,7 @@
     });
 
     randomButton.addEventListener('click', () => {
-      countSlider.value = Math.floor(Math.random() * 20) + 1;
+      countSlider.value = Math.floor(Math.random() * 16) + 5;
       scaleXSlider.value = (Math.random() * 2.9 + 0.1).toFixed(1);
       scaleYSlider.value = (Math.random() * 2.9 + 0.1).toFixed(1);
       spacingSlider.value = Math.floor(Math.random() * 100);

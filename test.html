@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emoji Circle</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: sans-serif;
+    }
+    .circle-container {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin-bottom: 30px;
+    }
+    .emoji {
+      position: absolute;
+      font-size: 2rem;
+      transition: transform 0.3s ease;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 1rem;
+      border: none;
+      border-radius: 10px;
+      background-color: #4CAF50;
+      color: white;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <div class="circle-container" id="circle"></div>
+  <button onclick="changeEmojis()">Change Emoji</button>
+
+  <script>
+    const emojiList = [
+      "😊", "😂", "😍", "😎", "😘", 
+      "😜", "😱", "🤪", "😻", "🤣"
+    ];
+    const circle = document.getElementById("circle");
+    const emojiCount = 10;
+    let currentEmoji = emojiList[Math.floor(Math.random() * emojiList.length)];
+
+    function renderCircle() {
+      circle.innerHTML = "";
+      for (let i = 0; i < emojiCount; i++) {
+        const angle = (i / emojiCount) * 2 * Math.PI;
+        const x = 130 + 120 * Math.cos(angle);
+        const y = 130 + 120 * Math.sin(angle);
+
+        const span = document.createElement("span");
+        span.className = "emoji";
+        span.style.left = `${x}px`;
+        span.style.top = `${y}px`;
+        span.textContent = currentEmoji;
+
+        circle.appendChild(span);
+      }
+    }
+
+    function changeEmojis() {
+      currentEmoji = emojiList[Math.floor(Math.random() * emojiList.length)];
+      renderCircle();
+    }
+
+    // Initial render
+    renderCircle();
+  </script>
+</body>
+</html>
